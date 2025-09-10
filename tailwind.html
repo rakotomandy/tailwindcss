@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Responsive Navbar</title>
+  </head>
+  <body class="bg-gray-100">
+   <!-- Responsive Navbar with Tailwind CSS -->
+<nav class="bg-white shadow-md fixed w-full z-10 top-0 left-0">
+  <!-- bg-white: sets background to white -->
+  <!-- shadow-md: adds medium drop shadow -->
+  <!-- fixed w-full z-10 top-0 left-0: sticks navbar to top with full width and ensures it's above other elements -->
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- max-w-7xl: maximum width of the container -->
+    <!-- mx-auto: center container horizontally -->
+    <!-- px-4: padding left & right (mobile) -->
+    <!-- sm:px-6 lg:px-8: increases padding on larger screens -->
+
+    <div class="flex items-center justify-between h-16">
+      <!-- flex: makes children flex items -->
+      <!-- items-center: vertically center items -->
+      <!-- justify-between: space items between left & right -->
+      <!-- h-16: navbar height is 4rem -->
+
+      <!-- LOGO -->
+      <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
+        <!-- flex-shrink-0: prevents logo from shrinking -->
+        <!-- text-2xl: large text size -->
+        <!-- font-bold: bold text -->
+        <!-- text-indigo-600: indigo color -->
+        MyLogo
+      </div>
+
+      <!-- NAV LINKS (Hidden on mobile, visible on medium screens and up) -->
+      <div class="hidden md:flex space-x-6">
+        <!-- hidden: hides by default (mobile) -->
+        <!-- md:flex: display flex on medium+ screens -->
+        <!-- space-x-6: horizontal spacing between links -->
+        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+        <!-- text-gray-700: gray text -->
+        <!-- hover:text-indigo-600: turns indigo on hover -->
+        <!-- font-medium: medium font weight -->
+        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">About</a>
+        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Services</a>
+        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+      </div>
+
+      <!-- MOBILE MENU BUTTON (Visible on small screens) -->
+      <div class="md:hidden">
+        <!-- md:hidden: visible only on small screens -->
+        <button id="menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+          <!-- text-gray-700: button color -->
+          <!-- hover:text-indigo-600: hover effect -->
+          <!-- focus:outline-none: removes default button outline -->
+          ☰ <!-- Hamburger icon -->
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE DROPDOWN MENU (Initially hidden) -->
+  <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1">
+    <!-- hidden: start hidden -->
+    <!-- md:hidden: only shows on mobile -->
+    <!-- px-2 pt-2 pb-3: padding for dropdown -->
+    <!-- space-y-1: vertical spacing between links -->
+    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">Home</a>
+    <!-- block: full-width links in mobile menu -->
+    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">About</a>
+    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">Services</a>
+    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
+  </div>
+</nav>
+
+<script>
+  // Simple toggle for mobile menu
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden'); // Show/Hide menu on button click
+  });
+</script>
+
+    </script>
+  </body>
+</html>
