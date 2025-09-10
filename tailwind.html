@@ -3,88 +3,177 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Responsive Navbar</title>
   </head>
-  <body class="bg-gray-100">
-   <!-- Responsive Navbar with Tailwind CSS -->
-<nav class="bg-white shadow-md fixed w-full z-10 top-0 left-0">
-  <!-- bg-white: sets background to white -->
-  <!-- shadow-md: adds medium drop shadow -->
-  <!-- fixed w-full z-10 top-0 left-0: sticks navbar to top with full width and ensures it's above other elements -->
+  <body class="bg-gray-100 min-h-screen flex">
+    <!-- bg-gray-100: light gray background -->
+    <!-- min-h-screen: ensures body fills full height -->
+    <!-- flex: enables flexbox (used for sidebar + main content) -->
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- max-w-7xl: maximum width of the container -->
-    <!-- mx-auto: center container horizontally -->
-    <!-- px-4: padding left & right (mobile) -->
-    <!-- sm:px-6 lg:px-8: increases padding on larger screens -->
-
-    <div class="flex items-center justify-between h-16">
-      <!-- flex: makes children flex items -->
-      <!-- items-center: vertically center items -->
-      <!-- justify-between: space items between left & right -->
-      <!-- h-16: navbar height is 4rem -->
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-indigo-700 text-white flex flex-col">
+      <!-- w-64: fixed sidebar width (16rem) -->
+      <!-- bg-indigo-700: indigo background -->
+      <!-- text-white: white text inside sidebar -->
+      <!-- flex flex-col: vertical stacking -->
 
       <!-- LOGO -->
-      <div class="flex-shrink-0 text-2xl font-bold text-indigo-600">
-        <!-- flex-shrink-0: prevents logo from shrinking -->
-        <!-- text-2xl: large text size -->
+      <div class="p-6 text-2xl font-bold border-b border-indigo-500">
+        <!-- p-6: padding all around -->
+        <!-- text-2xl: large text -->
+        <!-- font-bold: bold logo -->
+        <!-- border-b border-indigo-500: bottom border with lighter indigo -->
+        🏥 Hospital
+      </div>
+
+      <!-- NAV LINKS -->
+      <nav class="flex-1 p-4 space-y-3">
+        <!-- flex-1: take remaining vertical space -->
+        <!-- p-4: padding inside nav -->
+        <!-- space-y-3: vertical spacing between links -->
+        <a href="#" class="block py-2 px-3 rounded-lg hover:bg-indigo-600">
+          <!-- block: full-width clickable link -->
+          <!-- py-2 px-3: padding inside -->
+          <!-- rounded-lg: smooth corners -->
+          <!-- hover:bg-indigo-600: hover background -->
+          Dashboard
+        </a>
+        <a href="#" class="block py-2 px-3 rounded-lg hover:bg-indigo-600"
+          >Patients</a
+        >
+        <a href="#" class="block py-2 px-3 rounded-lg hover:bg-indigo-600"
+          >Doctors</a
+        >
+        <a href="#" class="block py-2 px-3 rounded-lg hover:bg-indigo-600"
+          >Appointments</a
+        >
+        <a href="#" class="block py-2 px-3 rounded-lg hover:bg-indigo-600"
+          >Billing</a
+        >
+        <a href="#" class="block py-2 px-3 rounded-lg hover:bg-indigo-600"
+          >Reports</a
+        >
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 p-6 overflow-y-auto">
+      <!-- flex-1: takes remaining width beside sidebar -->
+      <!-- p-6: padding all around -->
+      <!-- overflow-y-auto: scroll if content too tall -->
+
+      <!-- HEADER -->
+      <header class="flex justify-between items-center mb-6">
+        <!-- flex: arrange horizontally -->
+        <!-- justify-between: space between left and right -->
+        <!-- items-center: vertically center items -->
+        <!-- mb-6: bottom margin -->
+        <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+        <!-- text-3xl: very large title -->
         <!-- font-bold: bold text -->
-        <!-- text-indigo-600: indigo color -->
-        MyLogo
-      </div>
-
-      <!-- NAV LINKS (Hidden on mobile, visible on medium screens and up) -->
-      <div class="hidden md:flex space-x-6">
-        <!-- hidden: hides by default (mobile) -->
-        <!-- md:flex: display flex on medium+ screens -->
-        <!-- space-x-6: horizontal spacing between links -->
-        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Home</a>
-        <!-- text-gray-700: gray text -->
-        <!-- hover:text-indigo-600: turns indigo on hover -->
-        <!-- font-medium: medium font weight -->
-        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">About</a>
-        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Services</a>
-        <a href="#" class="text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
-      </div>
-
-      <!-- MOBILE MENU BUTTON (Visible on small screens) -->
-      <div class="md:hidden">
-        <!-- md:hidden: visible only on small screens -->
-        <button id="menu-btn" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
-          <!-- text-gray-700: button color -->
-          <!-- hover:text-indigo-600: hover effect -->
-          <!-- focus:outline-none: removes default button outline -->
-          ☰ <!-- Hamburger icon -->
+        <!-- text-gray-800: dark gray color -->
+        <button
+          class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500"
+        >
+          <!-- bg-indigo-600: button background -->
+          <!-- text-white: white text -->
+          <!-- px-4 py-2: padding inside -->
+          <!-- rounded-lg: rounded corners -->
+          <!-- hover:bg-indigo-500: lighter on hover -->
+          + Add Patient
         </button>
-      </div>
-    </div>
-  </div>
+      </header>
 
-  <!-- MOBILE DROPDOWN MENU (Initially hidden) -->
-  <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1">
-    <!-- hidden: start hidden -->
-    <!-- md:hidden: only shows on mobile -->
-    <!-- px-2 pt-2 pb-3: padding for dropdown -->
-    <!-- space-y-1: vertical spacing between links -->
-    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">Home</a>
-    <!-- block: full-width links in mobile menu -->
-    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">About</a>
-    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">Services</a>
-    <a href="#" class="block text-gray-700 hover:text-indigo-600 font-medium">Contact</a>
-  </div>
-</nav>
+      <!-- DASHBOARD CARDS -->
+      <section
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6"
+      >
+        <!-- grid: enable CSS Grid -->
+        <!-- grid-cols-1: 1 column on mobile -->
+        <!-- md:grid-cols-2: 2 columns on medium screens -->
+        <!-- lg:grid-cols-4: 4 columns on large screens -->
+        <!-- gap-6: spacing between grid items -->
+        <!-- mb-6: margin bottom -->
 
-<script>
-  // Simple toggle for mobile menu
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <!-- bg-white: white background -->
+          <!-- p-6: padding -->
+          <!-- rounded-xl: extra large rounded corners -->
+          <!-- shadow: subtle shadow -->
+          <!-- hover:shadow-lg: stronger shadow on hover -->
+          <!-- transition: smooth hover animation -->
+          <h2 class="text-xl font-semibold text-gray-700">Patients</h2>
+          <p class="text-3xl font-bold text-indigo-600 mt-2">1,250</p>
+        </div>
 
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden'); // Show/Hide menu on button click
-  });
-</script>
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h2 class="text-xl font-semibold text-gray-700">Doctors</h2>
+          <p class="text-3xl font-bold text-green-600 mt-2">120</p>
+        </div>
 
-    </script>
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h2 class="text-xl font-semibold text-gray-700">Appointments</h2>
+          <p class="text-3xl font-bold text-yellow-500 mt-2">320</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h2 class="text-xl font-semibold text-gray-700">Revenue</h2>
+          <p class="text-3xl font-bold text-red-500 mt-2">$85,400</p>
+        </div>
+      </section>
+
+      <!-- RECENT APPOINTMENTS TABLE -->
+      <section class="bg-white rounded-xl shadow p-6">
+        <!-- bg-white: white background -->
+        <!-- rounded-xl: rounded corners -->
+        <!-- shadow: box shadow -->
+        <!-- p-6: padding -->
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">
+          Recent Appointments
+        </h2>
+        <table class="w-full text-left border-collapse">
+          <!-- w-full: full width -->
+          <!-- text-left: align text left -->
+          <!-- border-collapse: collapse borders -->
+          <thead>
+            <tr class="bg-gray-100 text-gray-700">
+              <!-- bg-gray-100: light gray background -->
+              <!-- text-gray-700: darker text -->
+              <th class="p-3">Patient</th>
+              <!-- p-3: padding -->
+              <th class="p-3">Doctor</th>
+              <th class="p-3">Date</th>
+              <th class="p-3">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <!-- border-t: top border -->
+              <td class="p-3">John Doe</td>
+              <td class="p-3">Dr. Smith</td>
+              <td class="p-3">2025-09-12</td>
+              <td class="p-3 text-green-600 font-semibold">Completed</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-3">Jane Doe</td>
+              <td class="p-3">Dr. Wilson</td>
+              <td class="p-3">2025-09-13</td>
+              <td class="p-3 text-yellow-600 font-semibold">Pending</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-3">Michael Brown</td>
+              <td class="p-3">Dr. Taylor</td>
+              <td class="p-3">2025-09-14</td>
+              <td class="p-3 text-red-600 font-semibold">Cancelled</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
   </body>
 </html>
